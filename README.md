@@ -105,7 +105,7 @@ output/ozgecmis.pdf
 
 **IntelliJ IDEA ile:** Projeyi `File → Open` ile açın, Maven bağımlılıklarının inmesini bekleyin, ardından `Main.java` dosyasındaki ▶ butonuna basın.
 
-> **"The file in the editor is not runnable" uyarısı alırsanız:** Proje Maven projesi olarak yüklenmemiştir. `pom.xml` dosyasına sağ tıklayıp **Add as Maven Project** seçin (ya da Maven panelinden **Reload All Maven Projects**), ardından `File → Project Structure → SDK` kısmından JDK 21 veya üzerini seçin.
+> **"The file in the editor is not runnable" uyarısı alırsanız:** Büyük ihtimalle projeye JDK atanmamıştır. `File → Project Structure → Project → SDK` kısmından JDK 21 veya üzerini seçin. Sorun sürerse `pom.xml` dosyasına sağ tıklayıp **Maven → Sync Project** seçin.
 
 ### Kendi Özgeçmişini Oluşturmak
 
@@ -275,7 +275,7 @@ Bu proje, **Claude** (Anthropic) yapay zekâ asistanı ile birlikte geliştirilm
 - **Planlama:** Ödev gereksinimleri Claude ile birlikte incelendi; paket yapısı (model / data / pdf) ve sınıfların görevleri bu aşamada belirlendi.
 - **Kod yazımı:** Sınıfların ilk hali Claude tarafından yazıldı. Kodun sade ve açıklanabilir olması, her sınıfın tek bir işten sorumlu olması özellikle istendi.
 - **Teknik kararlar:** OpenPDF'in varsayılan fontları Türkçe karakterleri desteklemediği için Türkçe destekli bir font PDF'e gömüldü (`IDENTITY_H`, `EMBEDDED`). OpenPDF 3.x sürümünde paket adının `com.lowagie` yerine `org.openpdf` olduğu ve en az Java 21 gerektirdiği, kütüphanenin içeriği incelenerek tespit edildi ve kod buna göre düzenlendi.
-- **Kurulum sorunları:** Claude'un çalışma ortamı Maven deposuna erişemediği için OpenPDF `.jar` dosyası geliştirici tarafından sağlandı. IntelliJ'de projenin Maven projesi olarak yüklenmemesinden kaynaklanan "not runnable" sorunu, `pom.xml` Maven projesi olarak eklenerek çözüldü.
+- **Kurulum sorunları:** Claude'un çalışma ortamı Maven deposuna erişemediği için OpenPDF `.jar` dosyası geliştirici tarafından sağlandı. IntelliJ'de projeye JDK atanmamasından kaynaklanan "not runnable" sorunu, Project Structure'dan JDK seçilerek çözüldü.
 - **İnceleme ve öğrenme:** Kod teslimden önce Claude ile sınıf sınıf incelendi; nesne yaşam döngüsü ve erişim belirleyicilerin projede nerede kullanıldığı bu süreçte çıkarıldı.
 
 ## Lisanslar
